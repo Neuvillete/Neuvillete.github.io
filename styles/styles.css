@@ -40,6 +40,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -242,9 +243,9 @@ p {
     100% { clip: rect(88px, 9999px, 33px, 0); }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .container {
-        padding: 30px;
+        padding: 20px;
     }
 
     main {
@@ -270,10 +271,42 @@ p {
 
     nav ul {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    nav ul.show {
+        display: block;
+    }
+
+    nav ul li {
+        margin: 10px 0;
     }
 
     .hamburger {
         display: flex;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 }
 
